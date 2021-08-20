@@ -1,0 +1,59 @@
+<html>
+<body>
+
+<div>
+	<h3>Logo Programming Environment</h3>
+
+	<p>Enter a program in the box and click the button to run it.</p>
+	<label>Program to Run:</label>
+	<br />
+	<textarea id="textareaCode" cols="40" rows="20">
+
+pageCreate 100 100
+
+moveForward 10
+turnRight 90
+moveForward 10
+turnRight 90
+moveForward 10
+turnRight 90
+moveForward 10
+
+repeat 4
+	moveForward 10
+	turnLeft 90
+repeatLoop
+
+	</textarea>
+	<br />
+	<button onclick="buttonRun_Clicked();">Run</button>
+	<br />
+	<label>Output:</label>
+	<br />
+	<div id="divOutput"></div>
+</div>
+
+<script src="Coords.js"></script>
+<script src="Cursor.js"></script>
+<script src="Environment.js"></script>
+<script src="Instruction.js"></script>
+<script src="Location.js"></script>
+<script src="NumberHelper.js"></script>
+
+<script>
+
+function buttonRun_Clicked()
+{
+	var d = document;
+	var textareaCode = d.getElementById("textareaCode");
+	var code = textareaCode.value;
+	var environment = Environment.Instance();
+	environment.runCode(code);
+}
+
+// Classes.
+
+</script>
+
+</body>
+</html>
