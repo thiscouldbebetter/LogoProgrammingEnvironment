@@ -1,9 +1,10 @@
 class Cursor
 {
-	constructor(loc, isPenDown)
+	constructor(loc, isPenDown, penColor)
 	{
 		this.loc = loc || new Location();
 		this.isPenDown = isPenDown || true;
+		this.penColor = penColor || "Black";
 	}
 
 	static RadiansPerTurn = Math.PI * 2;
@@ -23,11 +24,22 @@ class Cursor
 		if (this.isPenDown)
 		{
 			var graphics = Environment.Instance().graphics;
+			graphics.strokeStyle = this.penColor;
 			graphics.beginPath();
 			graphics.moveTo(posBefore.x, posBefore.y);
 			graphics.lineTo(pos.x, pos.y);
 			graphics.stroke();
 		}
+	}
+
+	penColorSet(colorToSet)
+	{
+		this.penColor = colorToSet;
+	}
+
+	penToggle()
+	{
+		this.isPenDown = (this.isPenDown == false);
 	}
 
 	reset(pageSize)
@@ -36,7 +48,7 @@ class Cursor
 		var pos = this.loc.pos;
 		pos.x = pageCenter.x;
 		pos.y = pageCenter.y;
-		this.forwardInTurns = 0;
+		this.loc.forwardInTurns = 0;
 		this.isPenDown = true;
 	}
 

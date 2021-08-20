@@ -1,0 +1,16 @@
+comment Spikey.
+
+pageCreate 300 300
+
+penRaise
+
+moveForward 100
+turnRight 180
+
+penColor Green
+penLower
+
+repeat 36
+	moveForward 200
+	turnRight 175
+repeatLoop

@@ -13,7 +13,7 @@ class Instruction
 		var operand0 = this.operands[0];
 		var operand1 = this.operands[1];
 
-		if (commandName == "")
+		if (commandName == "" || commandName == "comment")
 		{
 			// Do nothing.
 		}
@@ -21,6 +21,10 @@ class Instruction
 		{
 			var pixelsToMove = operand0;
 			environment.cursor.moveForwardByPixels(pixelsToMove);
+		}
+		else if (commandName == "penColor")
+		{
+			environment.cursor.penColorSet(operand0);
 		}
 		else if (commandName == "penLower")
 		{
@@ -97,7 +101,7 @@ class Instruction
 		}
 		else
 		{
-			alert("Unrecognized command: " + codeLine);
+			throw "Unrecognized instruction:" + this.operationName;
 		}
 	}
 }

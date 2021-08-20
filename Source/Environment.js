@@ -34,8 +34,7 @@ class Environment
 				var tokens = codeLine.split(" ");
 				return new Instruction
 				(
-					tokens[0],
-					tokens.slice(1).map(t => parseInt(t))
+					tokens[0], tokens.slice(1)
 				);
 			}
 		);
