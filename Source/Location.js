@@ -1,17 +1,17 @@
 
 class Location
 {
-	constructor(pos, forwardInTurns)
+	constructor(pos, forwardInDegrees)
 	{
 		this.pos = pos || new Coords();
-		this.forwardInTurns = forwardInTurns || 0;
+		this.forwardInDegrees = forwardInDegrees || 0;
 	}
 
-	forwardInTurnsAdd(turnsToAdd)
+	forwardInDegreesAdd(degreesToAdd)
 	{
-		this.forwardInTurns = NumberHelper.wrapNumberToMax
+		this.forwardInDegrees = NumberHelper.wrapNumberToMax
 		(
-			this.forwardInTurns + turnsToAdd, 1
+			this.forwardInDegrees + degreesToAdd, 360
 		);
 	}
 }

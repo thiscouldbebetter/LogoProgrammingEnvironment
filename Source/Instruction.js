@@ -93,11 +93,11 @@ class Instruction
 		}
 		else if (commandName == "turnLeft")
 		{
-			environment.cursor.turnLeftByDegrees(operand0);
+			environment.cursor.turnLeftByDegrees(parseFloat(operand0));
 		}
 		else if (commandName == "turnRight")
 		{
-			environment.cursor.turnRightByDegrees(operand0);
+			environment.cursor.turnRightByDegrees(parseFloat(operand0));
 		}
 		else
 		{

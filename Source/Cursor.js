@@ -16,7 +16,9 @@ class Cursor
 		var posBefore = new Coords(pos.x, pos.y);
 
 		var forwardInRadians =
-			this.loc.forwardInTurns * Cursor.RadiansPerTurn;
+			this.loc.forwardInDegrees
+			/ Cursor.DegreesPerTurn
+			* Cursor.RadiansPerTurn;
 
 		pos.x += Math.cos(forwardInRadians) * pixelsToMove;
 		pos.y += Math.sin(forwardInRadians) * pixelsToMove;
@@ -48,7 +50,7 @@ class Cursor
 		var pos = this.loc.pos;
 		pos.x = pageCenter.x;
 		pos.y = pageCenter.y;
-		this.loc.forwardInTurns = 0;
+		this.loc.forwardInDegrees = 0;
 		this.isPenDown = true;
 	}
 
@@ -59,8 +61,6 @@ class Cursor
 
 	turnRightByDegrees(degreesToTurn)
 	{
-		var turnsToTurn =
-			degreesToTurn / Cursor.DegreesPerTurn;
-		this.loc.forwardInTurnsAdd(turnsToTurn);
+		this.loc.forwardInDegreesAdd(degreesToTurn);
 	}
 }
