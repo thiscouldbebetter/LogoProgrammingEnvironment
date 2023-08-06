@@ -4,8 +4,10 @@
 <div>
 	<h3>Logo Programming Environment</h3>
 
-	<p>Enter a program in the box and click the button to run it.</p>
+	<p>Enter a Logo program in the box and click the button to run it.</p>
 	<label>Program to Run:</label>
+	<button onclick="buttonProgramClear_Clicked();">Clear</button>
+	<button onclick="buttonProgramDemoLoad_Clicked();">Load Demo</button>
 	<br />
 	<textarea id="textareaCode" cols="40" rows="20">
 
@@ -43,6 +45,43 @@ repeatLoop
 <script src="NumberHelper.js"></script>
 
 <script>
+
+function buttonProgramClear_Clicked()
+{
+	var d = document;
+	var textareaCode = d.getElementById("textareaCode");
+	textareaCode.value = "";
+}
+
+function buttonProgramDemoLoad_Clicked()
+{
+	var codeDemoAsLines =
+	[ 
+		"comment Spikey.",
+		"",
+		"pageCreate 300 300",
+		"",
+		"penRaise",
+		"",
+		"moveForward 100",
+		"turnRight 180",
+		"",
+		"penColor Green",
+		"penLower",
+		"",
+		"repeat 36",
+		"\tmoveForward 200",
+		"\tturnRight 175",
+		"repeatLoop"
+	];
+
+	var newline = "\n";
+	var codeDemo = codeDemoAsLines.join(newline);
+
+	var d = document;
+	var textareaCode = d.getElementById("textareaCode");
+	textareaCode.value = codeDemo;
+}
 
 function buttonRun_Clicked()
 {
